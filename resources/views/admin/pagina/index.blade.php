@@ -25,7 +25,56 @@
                         <div class="card-body">
                                 <div class="row">
                                     <div class="col-lg-12 form-group">
-                                        <a href="{{route('create.pagina')}}" class="btn btn-primary">Registrar Pagina</a>
+                                        <a href="{{route('create.pagina')}}" class="btn btn-primary"><i class="fas fa-globe"></i> Registrar Pagina</a>
+                                        <a data-toggle="modal" data-target="#open-selector" class="btn btn-primary"><i class="fas fa-globe"></i> Pagina de edición</a>
+                                        
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="open-selector" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                            <form action="{{route('current_page', auth()->user()->id)}}" method="POST">
+
+                                                {{ csrf_field() }}
+
+                                                <input name="_method" type="hidden" value="PATCH">
+                                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLongTitle">SELECCIONAR PAGINA DE EDICION</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div class="row">
+                                                                @if (!auth()->user()->current_page)
+                                                                <div class="col-lg-12">
+                                                                    <div class="alert alert-danger" role="alert">
+                                                                        No tiene asignada una pagina de edicion>!
+                                                                      </div>
+                                                                </div>
+                                                                
+                                                                @endif
+                                                                <div class="col-lg-12">
+                                                                    <select name="current_page" class="form-control">
+                                                                        @foreach ($data_paginas as $item)
+                                                                            @if ($item->id == auth()->user()->current_page)
+                                                                                <option selected value="{{$item->id}}">{{$item->dominio}}</option>
+                                                                            @else
+                                                                            <option value="{{$item->id}}">{{$item->dominio}}</option>
+                                                                            @endif
+                                                                            
+                                                                        @endforeach
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                                                        <button type="submit" class="btn btn-success">Seleccionar</button>
+                                                        </div>
+                                                    </div>
+                                                    </div>
+                                            </form>
+                                        </div>
                                     </div>
                                     <div class="col-lg-12">
                                         <table class="table table-sm">
@@ -48,13 +97,14 @@
                                                    <td>
                                                     <div class="dropdown">
                                                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                          Opciones
+                                                            <i class="fas fa-cogs"></i>
                                                         </button>
                                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                          <a class="dropdown-item" data-toggle="modal" data-target="#modal-delete-{{$item->id}}">Eliminar</a>
-                                                          <a class="dropdown-item" data-toggle="modal" data-target="#open-{{$item->id}}">Cambiar dominio</a>
-                                                          <a class="dropdown-item" href="{{route('change_theme')}}">Cambiar plantilla</a>
-                                                
+                                                          <a class="dropdown-item" data-toggle="modal" data-target="#modal-delete-{{$item->id}}"><i class="fas fa-minus-circle"></i> Eliminar</a>
+                                                          <a class="dropdown-item" data-toggle="modal" data-target="#open-{{$item->id}}"><i class="fas fa-text-width"></i> Cambiar dominio</a>
+                                                          <a class="dropdown-item" href="{{route('change_theme')}}"><i class="fas fa-thumbtack"></i> Cambiar plantilla</a>
+                                                          <a target="_blank" class="dropdown-item" href="http://127.0.0.1:8000/{{$item->dominio}}"><i class="fas fa-thumbtack"></i> Ir a pagina</a>
+                                                          
                                                         </div>
                                                         @include('admin.pagina.modal')
 

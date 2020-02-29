@@ -14,9 +14,15 @@ use App\ConfigFooter;
 use App\Slider;
 use Session;
 use Illuminate\Support\Facades\Redirect;
+use App\User;
+
 
 class PaginaController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth');
+    }
+    
     function index(){
         $data_paginas = DB::table('pagina')
         ->where('iduser','=',auth()->user()->id)
@@ -75,7 +81,7 @@ class PaginaController extends Controller
         $item->save();
 
         $general = new ConfigGeneral;
-        $general->fuente = 'Arial';
+        $general->fuente = '';
         $general->size = '10px';
         $general->logo = 'logo_default.png';
         $general->fondo_principal = 'principal_default.png';
@@ -160,5 +166,14 @@ class PaginaController extends Controller
 
         Session::flash('succes', 'Se elimino su registro con exito');
         return Redirect::to('admin/change/plantillas');
+    }
+
+  
+    public function current_page(Request $request, $id){
+        $user = User::findOrFail($id);
+        $user->current_page = $request->get('current_page');
+        $user->update();
+        Session::flash('succes', 'Se selecciono su pagina de edicion');
+        return Redirect::to('admin/paginas');
     }
 }

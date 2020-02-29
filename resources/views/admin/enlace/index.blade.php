@@ -29,7 +29,7 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-lg-12 form-group">
-                                        <a href="{{route('create.equipo')}}" type="button" class="btn btn-success">Registrar enlace</a>
+                                        <a href="{{route('create.enlace')}}" type="button" class="btn btn-success">Registrar enlace</a>
                                     </div>
                                     <div class="col-lg-12">
                                         <table class="table table-sm">

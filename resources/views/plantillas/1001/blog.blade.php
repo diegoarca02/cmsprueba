@@ -25,10 +25,10 @@
             <div class="col-sm-6 col-lg-4">
             <!-- Post Classic-->
        
-                <article class="post post-classic box-md"><a class="post-classic-figure" href="http://127.0.0.1:8000/inmaculada/contenido/pagina/blog/{{$item->slug}}"><img src="{{asset('blog/'.$item->imagen)}}" alt="" width="370" height="239"/></a>
+                <article class="post post-classic box-md"><a class="post-classic-figure" href="http://127.0.0.1:8000/{{$dominio}}/contenido/pagina/blog/{{$item->slug}}"><img src="{{asset('blog/'.$item->imagen)}}" alt="" width="370" height="239"/></a>
                     <div class="post-classic-content">
                      
-                      <h5 class="post-classic-title text-spacing-0"><a href="http://127.0.0.1:8000/inmaculada/contenido/pagina/blog/{{$item->slug}}">{{$item->titulo}}</a></h5>
+                      <h5 class="post-classic-title text-spacing-0"><a href="http://127.0.0.1:8000/{{$dominio}}/contenido/pagina/blog/{{$item->slug}}">{{$item->titulo}}</a></h5>
                       <p class="post-classic-text font-fourth">{{$item->excerpt}}</p>
                     </div>
                   </article>

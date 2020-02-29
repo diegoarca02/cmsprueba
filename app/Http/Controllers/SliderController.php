@@ -11,6 +11,10 @@ use Illuminate\Support\Facades\Input;
 
 class SliderController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth');
+    }
+    
     public function index(){
 
         $slider = DB::table('slider')

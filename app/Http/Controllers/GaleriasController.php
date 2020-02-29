@@ -11,6 +11,10 @@ use Illuminate\Support\Facades\Input;
 
 class GaleriasController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth');
+    }
+    
     public function index(){
 
         $galeria = DB::table('galeria')

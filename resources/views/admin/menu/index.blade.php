@@ -269,6 +269,12 @@
                 $('#open-links').modal('toggle');
             });
 
+            $('.btn-dinamico').on('click', function(event) {
+                let classenlace = $(this).parent().parent().children()[2].innerText;
+                $("#input_enlace").val(classenlace);
+                $('#open-links').modal('toggle');
+            });
+
             $('.btn-icono').on('click', function(event) {
                 let classenlace = $(this).parent().parent().children()[2].innerText;
     

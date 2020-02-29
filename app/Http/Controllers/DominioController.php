@@ -90,7 +90,7 @@ class DominioController extends Controller
             ->get();
 
 
-            return view('plantillas.'.$idplantilla.'.index',compact('menu','items_menu','general','footer','entrada','equipo','enlace','galeria','seccion_uno','seccion_dos','slider','blog','galeria_index','galeria_footer','blog_index',));
+            return view('plantillas.'.$idplantilla.'.index',compact('menu','items_menu','general','footer','entrada','equipo','enlace','galeria','seccion_uno','seccion_dos','slider','blog','galeria_index','galeria_footer','blog_index','dominio'));
 
         }
     }
@@ -244,7 +244,7 @@ class DominioController extends Controller
             ->where('idpagina','=',$idpagina)
             ->paginate(9);
            
-            return view('plantillas.'.$idplantilla.'.blog',compact('menu','items_menu','general','footer','entrada','equipo','enlace','galeria','seccion_uno','seccion_dos','slider','blog','galeria_index','galeria_footer'));
+            return view('plantillas.'.$idplantilla.'.blog',compact('menu','items_menu','general','footer','entrada','equipo','enlace','galeria','seccion_uno','seccion_dos','slider','blog','galeria_index','galeria_footer','dominio'));
 
         }
     }

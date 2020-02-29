@@ -11,6 +11,11 @@ use Illuminate\Support\Facades\Redirect;
 
 class ConfigGeneralController extends Controller
 {
+
+    public function __construct(){
+        $this->middleware('auth');
+    }
+    
     function index(){
 
         $pagina = DB::table('users')
@@ -30,12 +35,12 @@ class ConfigGeneralController extends Controller
     function update_general(Request $request, $id){
         $validate = $this->validate($request,[   
             'titulo'=>'required|max:150',
-            'fuente'=>'required|max:150',
-            'size'=>'required|max:10',
+            'fuente'=>'max:150',
+            'size'=>'max:10',
             'logo'=>'mimes:jpeg,bmp,jpg,png|max:5000',
             'fondo_principal'=>'mimes:jpeg,bmp,jpg,png|max:5000',
             'favicon'=>'mimes:jpeg,bmp,jpg,png|max:5000',
-            'mapa'=>'required|max:250',
+            'mapa'=>'required|max:1000',
         ]);
 
         $general = ConfigGeneral::findOrFail($id);
@@ -62,5 +67,27 @@ class ConfigGeneralController extends Controller
 
         Session::flash('succes', 'Se actualizo su configuracion general con exito');
         return Redirect::to('admin/configuracion/general');
+    }
+
+
+    function select_fondo(){
+
+        $general = DB::table('config_general')
+        ->where('idpagina','=',auth()->user()->current_page)
+        ->first();
+
+        $idgeneral = $general->{'id'};
+        return view('admin.fondo.index',compact('idgeneral','general'));
+    }
+
+    public function update_select_fondo(Request $request, $id){
+      
+        $general = ConfigGeneral::findOrFail($id);
+        $general->fondo = $request->get('fondo');
+        $general->update();
+
+        Session::flash('succes','Se actualizo su fondo con existo');
+        return Redirect::to('admin/fondos');
+
     }
 }

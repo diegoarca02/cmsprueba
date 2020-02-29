@@ -11,6 +11,10 @@ use Illuminate\Support\Facades\Input;
 
 class EnlaceController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth');
+    }
+    
     public function index(){
 
         $enlace = DB::table('enlace')

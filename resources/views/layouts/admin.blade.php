@@ -85,7 +85,7 @@
         </button>
     </header>
     <div class="app-body">
-        <div class="sidebar" style="background: #2e6ea4 !important;">
+        <div class="sidebar" style="background: #443838  !important;">
             <nav class="sidebar-nav ps ps--active-y">
                 <ul class="nav">
                     <li class="nav-item">
@@ -106,7 +106,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{route('index.paginas')}}">
+                                <a class="nav-link" href="{{route('index.pagina')}}">
                                     <i class="nav-icon icon-layers"></i> Paginas
                                 </a>
                             </li>
@@ -115,12 +115,14 @@
 
 
                     @if (auth::check())
-                        @if (auth()->user()->role=="USUARIO")
+                        
                             <li class="nav-item">
                                 <a class="nav-link" href="{{route('index.pagina')}}">
                                     <i class="nav-icon icon-folder"></i> Paginas
                                 </a>
                             </li>
+                          
+                            @if (auth()->user()->current_page)
                             <li class="nav-item">
                                 <a class="nav-link" href="{{route('index.contacto')}}">
                                     <i class="nav-icon icon-envelope"></i> Mensajes
@@ -142,11 +144,15 @@
                                         <a class="nav-link" href="{{route('index.footer')}}">
                                             <i class="nav-icon icon-frame"></i> Footer</a>
                                     </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{route('index.fondo')}}">
+                                            <i class="nav-icon icon-frame"></i> Fondos</a>
+                                    </li>
                                 </ul>
                             </li>
                                     
                                     
-                              
+                            
         
                             <li class="nav-title">Contenido</li>
                             <li class="nav-item">
@@ -182,8 +188,9 @@
                                 <a class="nav-link" href="{{route('index.blog')}}">
                                     <i class="nav-icon icon-cursor"></i> Blog</a>
                             </li>
-                           
-                        @endif
+                    
+                            @endif
+                      
                     @endif
 
                     

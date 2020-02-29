@@ -12,7 +12,7 @@
   
             @foreach ($blog as $item)
             <div class="col-md-4 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
-              <a href="http://127.0.0.1:8000/inmaculada/contenido/pagina/blog/{{$item->slug}}">
+              <a href="http://127.0.0.1:8000/{{$dominio}}/contenido/pagina/blog/{{$item->slug}}">
                 <div class="about-col">
                     <div class="img">
                       <img src="{{asset('blog/'.$item->imagen)}}" alt="" class="img-fluid" style="width: 100% !important">

@@ -32,26 +32,37 @@
                                         <div class="col-lg-4 form-group">
                                             <label><b>Fuente</b></label>
                                             <select class="form-control {{ $errors->has('fuente') ? ' is-invalid' : '' }}" name="fuente">
-                                                @if ($general->fuente == 'Arial')
-                                                    <option value="Arial" selected>Arial</option>
+                                                @if ($general->fuente == 'Open Sans')
+                                                    <option value="">Fuente de plantilla</option>
+                                                    <option value="Open Sans" selected>Open Sans</option>
                                                     <option value="Roboto">Roboto</option>
                                                     <option value="Nunito">Nunito</option>
                                                     <option value="Raleway">Raleway</option>
                                                 @elseif($general->fuente == 'Roboto')
-                                                    <option value="Arial" >Arial</option>
+                                                <option value="">Fuente de plantilla</option>
+                                                    <option value="Open Sans" >Open Sans</option>
                                                     <option value="Roboto" selected>Roboto</option>
                                                     <option value="Nunito">Nunito</option>
                                                     <option value="Raleway">Raleway</option>
                                                 @elseif($general->fuente == 'Nunito')
-                                                    <option value="Arial" >Arial</option>
+                                                <option value="">Fuente de plantilla</option>
+                                                    <option value="Open Sans" >Open Sans</option>
                                                     <option value="Roboto" >Roboto</option>
                                                     <option value="Nunito" selected>Nunito</option>
                                                     <option value="Raleway">Raleway</option>
                                                 @elseif($general->fuente == 'Raleway')
-                                                    <option value="Arial" >Arial</option>
+                                                <option value="">Fuente de plantilla</option>
+                                                    <option value="Open Sans" >Open Sans</option>
                                                     <option value="Roboto" >Roboto</option>
                                                     <option value="Nunito">Nunito</option>
                                                     <option value="Raleway" selected>Raleway</option>
+                                                @elseif($general->fuente == "")
+                                                <option value="" selected>Fuente de plantilla</option>
+                                                    <option value="Open Sans" >Open Sans</option>
+                                                    <option value="Roboto" >Roboto</option>
+                                                    <option value="Nunito">Nunito</option>
+                                                    <option value="Raleway" >Raleway</option>
+                                           
                                                 @endif
                                                
                                             </select>
@@ -65,25 +76,35 @@
                                             <label><b>Tamaño de letra</b></label>
                                             <select class="form-control {{ $errors->has('size') ? ' is-invalid' : '' }}" name="size">
                                                 @if ($general->size == '8px')
+                                                    <option value="">Por defecto de plantilla</option>
                                                     <option value="8px" selected>8px</option>
                                                     <option value="10px">10px</option>
                                                     <option value="12px">12px</option>
                                                     <option value="20px">20px</option>
                                                 @elseif($general->size == '10px')
+                                                <option value="">Por defecto de plantilla</option>
                                                     <option value="8px" >8px</option>
                                                     <option value="10px" selected>10px</option>
                                                     <option value="12px">12px</option>
                                                     <option value="20px">20px</option>
                                                 @elseif($general->size == '12px')
+                                                <option value="">Por defecto de plantilla</option>
                                                     <option value="8px" >8px</option>
                                                     <option value="10px" >10px</option>
                                                     <option value="12px" selected>12px</option>
                                                     <option value="20px">20px</option>
                                                 @elseif($general->size == '20px')
+                                                <option value="">Por defecto de plantilla</option>
                                                     <option value="8px" >8px</option>
                                                     <option value="10px" >10px</option>
                                                     <option value="12px">12px</option>
                                                     <option value="20px" selected>20px</option>
+                                                 @elseif($general->size == "")
+                                                 <option value="" selected>Por defecto de plantilla</option>
+                                                    <option value="8px" >8px</option>
+                                                    <option value="10px" >10px</option>
+                                                    <option value="12px">12px</option>
+                                                    <option value="20px" >20px</option>
                                                 @endif
                                                 
                                             </select>

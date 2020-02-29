@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Input;
 class SeccionUnoController extends Controller
 {
 
+    public function __construct(){
+        $this->middleware('auth');
+    }
+
     public function index(){
         $pagina = DB::table('users')
         ->where('current_page','=',auth()->user()->current_page)

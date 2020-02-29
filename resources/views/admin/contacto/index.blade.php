@@ -41,7 +41,7 @@
                                                     <td>{{$item->nombres}}</td>
                                                     <td>{{$item->correo}}</td>
                                                     <td>
-                                                        <button class="btn btn-warning" data-toggle="modal" data-target="#open-{{$item->id}}">Leer mensaje</button>
+                                                        <button class="btn btn-warning" data-toggle="modal" data-target="#open-{{$item->id}}"><i class="fas fa-eye"></i></button>
                                                     </td>
 
                                                     <!-- Modal -->

@@ -32,7 +32,7 @@
 
 
   <!-- Why Choose Divers-->
-  <section class="section section-xxl bg-default text-md-left">
+  <section class="section section-xxl text-md-left">
     <div class="container">
       <div class="row row-30 row-md-60 row-lg-70 justify-content-center align-items-md-center">
         <div class="col-sm-8 col-md-5 col-xl-6">
@@ -52,7 +52,7 @@
 
 
    <!-- Instructors-->
-   <section class="section section-xxl bg-default">
+   <section class="section section-xxl">
     <div class="container">
       <h3 class="text-spacing-0 text-transform-capitalize wow fadeScale">Nuestro Equipo</h3>
       <!-- Owl Carousel-->
@@ -79,7 +79,7 @@
 
   
  <!-- Why Choose Divers-->
- <section class="section section-xxl bg-default text-md-left">
+ <section class="section section-xxl text-md-left">
   <div class="container">
     <div class="row row-30 row-md-60 row-lg-70 justify-content-center align-items-md-center">
       <div class="col-sm-8 col-md-5 col-xl-6">
@@ -100,7 +100,7 @@
 
 
   <!-- Masonry Gallery-->
-  <section class="section section-xxl bg-default">
+  <section class="section section-xxl">
     <div class="container">
       <h3 class="text-transform-capitalize wow fadeScale">Galería</h3>
       <div class="isotope-wrap">
@@ -144,10 +144,10 @@
         <!-- Post Classic-->
 
         @foreach ($blog as $item)
-        <article class="post post-classic box-md wow slideInDown"><a class="post-classic-figure" href="blog-post.html"><img src="{{asset('blog/'.$item->imagen)}}" alt="" width="370" height="239"/></a>
+        <article class="post post-classic box-md wow slideInDown"><a class="post-classic-figure" href="http://127.0.0.1:8000/{{$dominio}}/contenido/pagina/blog/{{$item->slug}}"><img src="{{asset('blog/'.$item->imagen)}}" alt="" width="370" height="239"/></a>
           <div class="post-classic-content">
            
-            <h5 class="post-classic-title text-spacing-0"><a href="blog-post.html">{{$item->titulo}}</a></h5>
+            <h5 class="post-classic-title text-spacing-0"><a href="http://127.0.0.1:8000/{{$dominio}}/contenido/pagina/blog/{{$item->slug}}">{{$item->titulo}}</a></h5>
             <p class="post-classic-text font-fourth">{{$item->excerpt}}</p>
           </div>
         </article>
@@ -158,7 +158,7 @@
   </section>
 
   <!-- Masonry Gallery-->
-  <section class="section section-xxl bg-default">
+  <section class="section section-xxl">
     <div class="container">
       <h3 class="text-transform-capitalize wow fadeScale">Enlaces Recomendados</h3>
       <div class="isotope-wrap">

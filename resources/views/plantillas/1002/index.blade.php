@@ -107,7 +107,7 @@
                 <img src="{{asset('blog/'.$item->imagen)}}" alt="" class="img-fluid" style="width: 100% !important">
                 <div class="icon"><i class="ion-ios-speedometer-outline"></i></div>
               </div>
-              <h2 class="title"><a href="#">{{$item->titulo}}</a></h2>
+              <h2 class="title"><a href="http://127.0.0.1:8000/{{$dominio}}/contenido/pagina/blog/{{$item->slug}}">{{$item->titulo}}</a></h2>
               <p>
                 {{$item->excerpt}}
               </p>

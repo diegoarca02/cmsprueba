@@ -11,6 +11,10 @@ use Illuminate\Support\Str;
 
 class EntradaController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth');
+    }
+    
     public function index(){
 
         $entradas = DB::table('entrada')

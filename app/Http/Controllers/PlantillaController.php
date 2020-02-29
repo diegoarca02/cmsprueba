@@ -11,6 +11,10 @@ use Illuminate\Support\Facades\Redirect;
 
 class PlantillaController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth');
+    }
+    
     function index(){
 
         $data_plantillas = DB::table('plantilla')
